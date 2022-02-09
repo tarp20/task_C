@@ -1,11 +1,9 @@
-import unittest
-
-import car
+from nose.tools import assert_true
 
 
-class TestCar(unittest.TestCase):
-    def test_is_car_exist(self):
-        self.assertTrue(car.is_car_exist('honda', 'civic'))
-        self.assertFalse(car.is_car_exist('Curana', 'merana'))
-        self.assertTrue(car.is_car_exist('BMW', 'X5'))
-        self.assertFalse(car.is_car_exist('BMW', 'X29'))
+def test_request():
+    make = 'BMW'
+    f'https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/\
+    {make.capitalize()}?format=json'
+    response = requests.get(url)
+    assert_true(response.ok)
